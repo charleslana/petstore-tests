@@ -35,7 +35,6 @@ public class PetServiceImpl implements ApiPetService<Pet> {
         Response response = RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .pathParam("id", id)
                 .get(PetUtils.getPetUrl().concat("/{id}"));
         if (response.statusCode() == 200) {
@@ -64,7 +63,6 @@ public class PetServiceImpl implements ApiPetService<Pet> {
         Response response = RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .queryParam("status", status.getStatus())
                 .get(PetUtils.getPetUrl().concat("/findByStatus"));
         response.then().statusCode(200);
