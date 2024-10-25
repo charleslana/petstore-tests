@@ -66,9 +66,9 @@ public class PetTest {
     @Test(groups = "findPetsByStatusPending")
     public void findPetsByStatusPending() {
         createInitialPets();
-        List<Pet> availablePets = petServiceImpl.findByStatus(PetStatus.PENDING);
-        Assert.assertFalse(availablePets.isEmpty());
-        for (Pet pet : availablePets) {
+        List<Pet> pendingPets = petServiceImpl.findByStatus(PetStatus.PENDING);
+        Assert.assertFalse(pendingPets.isEmpty());
+        for (Pet pet : pendingPets) {
             Assert.assertEquals(pet.getStatus(), PetStatus.PENDING);
         }
     }
