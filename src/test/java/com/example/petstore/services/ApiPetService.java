@@ -3,11 +3,12 @@ package com.example.petstore.services;
 import java.util.List;
 
 import com.example.petstore.enums.PetStatus;
+import com.example.petstore.models.ResponseWrapper;
 
 public interface ApiPetService<T> {
     T create(T entity);
 
-    T get(Long id);
+    ResponseWrapper get(Long id);
 
     T update(T entity);
 

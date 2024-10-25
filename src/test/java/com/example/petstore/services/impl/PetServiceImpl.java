@@ -3,7 +3,9 @@ package com.example.petstore.services.impl;
 import java.util.List;
 
 import com.example.petstore.enums.PetStatus;
+import com.example.petstore.models.ErrorResponse;
 import com.example.petstore.models.Pet;
+import com.example.petstore.models.ResponseWrapper;
 import com.example.petstore.services.ApiPetService;
 import com.example.petstore.utils.PetUtils;
 
@@ -27,15 +29,19 @@ public class PetServiceImpl implements ApiPetService<Pet> {
     }
 
     @Override
-    public Pet get(Long id) {
+    public ResponseWrapper get(Long id) {
         Response response = RestAssured
                 .given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .pathParam("/", id)
-                .get(PetUtils.getPetUrl());
-        response.then().statusCode(200);
-        return response.as(Pet.class);
+                .pathParam("id", id)
+                .get(PetUtils.getPetUrl().concat("/{id}"));
+        if (response.statusCode() == 200) {
+            Pet pet = response.as(Pet.class);
+            return new ResponseWrapper(pet, false);
+        }
+        ErrorResponse error = response.as(ErrorResponse.class);
+        return new ResponseWrapper(error, true);
     }
 
     @Override
@@ -56,9 +62,8 @@ public class PetServiceImpl implements ApiPetService<Pet> {
                 .given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
-                .pathParam("/", "findByStatus")
                 .queryParam("status", status.getStatus())
-                .get(PetUtils.getPetUrl());
+                .get(PetUtils.getPetUrl().concat("/findByStatus"));
         response.then().statusCode(200);
         return List.of(response.as(Pet[].class));
     }

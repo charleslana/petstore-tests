@@ -1,5 +1,7 @@
 # Java+RestAssured
 
+Requer Java 21
+
 # Instalar dependências
 
 ```bash
@@ -12,11 +14,49 @@ mvn clean install
 mvn test
 ```
 
-# Executar teste especifico
+# Executar teste em grupo
 
 ```bash
-mvn test -Dgroups="orderCreation"
+mvn test -Dgroups="createOrder"
 ```
+
+# Executar teste pelo método da classe de teste
+
+```bash
+mvn test -Dtest=PetTest#updatePet
+```
+
+# Executar testes pelo testng.xml
+
+```bash
+mvn test -DsuiteXmlFile=testng.xml
+```
+
+# Relatórios
+
+### Execução dos testes
+
+![Tela 1](./screenshots/1.png)
+
+### Cadastrar novo pedido de pet com sucesso (POST /store/order)
+
+![Tela 2](./screenshots/2.png)
+
+### Pesquisar por pets com status “pending” (GET /pet/findByStatus)
+
+![Tela 3](./screenshots/3.png)
+
+### Pesquisar por um pet inexistente (GET /pet/{petId})
+
+![Tela 4](./screenshots/4.png)
+
+### Atualizar dados de um pet existente (PUT /pet)
+
+![Tela 5](./screenshots/5.png)
+
+### Todos os testes
+
+![Tela 6](./screenshots/6.png)
 
 # Processo para criar o projeto
 
