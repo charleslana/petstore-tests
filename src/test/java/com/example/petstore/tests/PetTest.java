@@ -17,9 +17,6 @@ import com.example.petstore.services.impl.PetServiceImpl;
 import com.example.petstore.utils.ExtentReportManager;
 import com.example.petstore.utils.PetUtils;
 
-import lombok.Getter;
-
-@Getter
 @Listeners(ExtentReportManager.class)
 public class PetTest {
     private PetServiceImpl petServiceImpl;
