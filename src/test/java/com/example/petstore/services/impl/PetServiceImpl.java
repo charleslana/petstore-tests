@@ -2,6 +2,8 @@ package com.example.petstore.services.impl;
 
 import java.util.List;
 
+import org.testng.Assert;
+
 import com.example.petstore.enums.PetStatus;
 import com.example.petstore.models.ErrorResponse;
 import com.example.petstore.models.Pet;
@@ -40,6 +42,7 @@ public class PetServiceImpl implements ApiPetService<Pet> {
             Pet pet = response.as(Pet.class);
             return new ResponseWrapper(pet, false);
         }
+        Assert.assertEquals(response.statusCode(), 404);
         ErrorResponse error = response.as(ErrorResponse.class);
         return new ResponseWrapper(error, true);
     }
