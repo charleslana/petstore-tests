@@ -4,8 +4,16 @@ Requer Java 21
 
 # Instalar dependências
 
+Os testes serão executados em paralelo
+
 ```bash
 mvn clean install
+```
+
+Os testes são pulados após instalação
+
+```bash
+mvn clean install -DskipTests
 ```
 
 # Executar todos os testes
