@@ -82,6 +82,9 @@ public class ExtentReportManager implements ITestListener {
     }
 
     private void openReport() {
+        if (!Desktop.isDesktopSupported() || !Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            return;
+        }
         String extentReportPath = "./src/test/resources/reports/Test-Reports_" + reportTime + ".html";
         File extentReportFile = new File(extentReportPath);
         try {

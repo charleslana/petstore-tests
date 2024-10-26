@@ -8,6 +8,8 @@ on:
 
 jobs:
   test:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
@@ -28,8 +30,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install Dependencies and Run Tests
-        run: mvn clean install
+      - name: Install Dependencies
+        run: mvn clean install -DskipTests
 
       - name: Run Tests
         run: mvn test
