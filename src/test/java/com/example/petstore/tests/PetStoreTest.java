@@ -5,17 +5,17 @@ import java.time.temporal.ChronoUnit;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+// import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.example.petstore.enums.OrderStatus;
 import com.example.petstore.enums.PetStatus;
 import com.example.petstore.models.Order;
 import com.example.petstore.services.impl.OrderServiceImpl;
-import com.example.petstore.utils.ExtentReportManager;
+// import com.example.petstore.utils.ExtentReportManager;
 import com.example.petstore.utils.PetUtils;
 
-@Listeners(ExtentReportManager.class)
+// @Listeners(ExtentReportManager.class) // comentado para desativar o extent report individual para testes do NG
 public class PetStoreTest {
     private OrderServiceImpl orderServiceImpl;
 

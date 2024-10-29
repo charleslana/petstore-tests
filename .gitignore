@@ -1,5 +1,6 @@
 .vscode
 logs
 target
-resources
+/src/test/resources/reports/
+/src/test/resources/log4j2.xml
 TestNgLifeCycleTest.java

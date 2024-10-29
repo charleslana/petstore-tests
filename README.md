@@ -40,6 +40,14 @@ mvn test -Dtest=PetTest#updatePet
 mvn test -DsuiteXmlFile=testng.xml
 ```
 
+# Executar testes com cucumber com tag especifica
+
+[Documentação do Cucumber](https://cucumber.io/docs/cucumber/api/?lang=java)
+
+```bash
+mvn test -Dcucumber.filter.tags="@postOrder"
+```
+
 # Relatórios
 
 ### Execução dos testes

@@ -6,7 +6,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
+// import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.example.petstore.enums.PetStatus;
@@ -14,10 +14,10 @@ import com.example.petstore.models.ErrorResponse;
 import com.example.petstore.models.Pet;
 import com.example.petstore.models.ResponseWrapper;
 import com.example.petstore.services.impl.PetServiceImpl;
-import com.example.petstore.utils.ExtentReportManager;
+// import com.example.petstore.utils.ExtentReportManager;
 import com.example.petstore.utils.PetUtils;
 
-@Listeners(ExtentReportManager.class)
+// @Listeners(ExtentReportManager.class) // comentado para desativar o extent report individual para testes do NG
 public class PetTest {
     private PetServiceImpl petServiceImpl;
     private List<Pet> createdPets;
